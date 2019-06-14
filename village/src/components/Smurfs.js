@@ -4,15 +4,18 @@ import styled from 'styled-components'
 import Smurf from './Smurf';
 
 const SmuffWrapper = styled.div`
-  width: 100%;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto;
   ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
   }
   h1 {
     font-size: 2rem;

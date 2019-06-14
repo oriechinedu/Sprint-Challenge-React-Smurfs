@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Route } from 'react-router-dom'
-import "./App.css";
+import  AppWrapper from "./AppStyle.js";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import GlobalStyle from "./components/styled/GlobalStyle";
-
+import Header from './components/Header'
 
 const API_BASE_URL = 'http://localhost:3333/smurfs'
 class App extends Component {
@@ -40,11 +40,12 @@ class App extends Component {
     return (
       <React.Fragment>
         <GlobalStyle />
-        <div className="App">
+        <AppWrapper>
+        <Header />
           {this.state.error && <p style={{ color: 'red'}}>{this.state.error}</p>}
           <Route exact path="/" render={props => <Smurfs  {...props} smurfs={this.state.smurfs} /> } />
           <Route path="/smurf-form" component={SmurfForm} />
-        </div>
+        </AppWrapper>
       </React.Fragment>
     );
   }

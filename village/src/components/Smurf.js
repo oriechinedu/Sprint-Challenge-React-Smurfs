@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components'
 
 const SmuffWrapper = styled.div`
-  width: 200px;
+  width: 250px;
+  height: 150px;
   margin: 1rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
+  text-align: center;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(204,204,204,1);
   -moz-box-shadow: 0px 0px 5px 0px rgba(204,204,204,1);
   box-shadow: 0px 0px 5px 0px rgba(204,204,204,1);
