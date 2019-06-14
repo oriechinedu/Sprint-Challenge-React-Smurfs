@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Route } from 'react-router-dom'
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
@@ -41,8 +42,8 @@ class App extends Component {
         <GlobalStyle />
         <div className="App">
           {this.state.error && <p style={{ color: 'red'}}>{this.state.error}</p>}
-          <SmurfForm />
-          <Smurfs smurfs={this.state.smurfs} />
+          <Route exact path="/" render={props => <Smurfs  {...props} smurfs={this.state.smurfs} /> } />
+          <Route path="/smurf-form" component={SmurfForm} />
         </div>
       </React.Fragment>
     );
