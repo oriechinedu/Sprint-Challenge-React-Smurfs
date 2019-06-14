@@ -1,6 +1,41 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
+
+
 const API_BASE_URL = 'http://localhost:3333/smurfs'
+
+const FormWrapper = styled.form`
+width: 100%;
+margin: 10rem auto;
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 2rem;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(204,204,204,1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(204,204,204,1);
+  box-shadow: 0px 0px 5px 0px rgba(204,204,204,1);
+  > * {
+    margin-bottom: .8rem;
+    padding: 0.8rem;
+    font-size: 1.4rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  > *:last-child {
+    margin-top: 1rem;
+    cursor: pointer;
+    background: #ccc;
+    color: white;
+    &:hover{
+      background: #fff;
+      color: black;
+    }
+  }
+}
+`
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +69,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <FormWrapper>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -56,7 +91,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </FormWrapper>
     );
   }
 }

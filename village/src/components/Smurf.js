@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const SmuffWrapper = styled.div`
   width: 200px;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
