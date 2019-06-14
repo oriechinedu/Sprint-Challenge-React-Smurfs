@@ -58,10 +58,9 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
     const newSurf = { ...this.state.form };
-    console.log(newSurf);
-
     axios.post(API_BASE_URL, newSurf)
     .then(data => {
+      this.props.update()
       this.props.history.push('/')
     })
     .catch(err => {

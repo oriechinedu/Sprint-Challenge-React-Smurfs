@@ -23,6 +23,7 @@ class App extends Component {
   componentDidMount() {
     this.getSmurfs()
   }
+
   getSmurfs  = async () => {
     this.setState({isLoading: true})
     try {
@@ -35,6 +36,9 @@ class App extends Component {
     } finally {
       this.setState({isLoading: false})
     }
+  }
+  updateState = () => {
+    this.getSmurfs()
   }
   deleteSmurf = (id) => {
     axios.delete(`${API_BASE_URL}/${id}`)
@@ -53,7 +57,7 @@ class App extends Component {
         <Header />
           {this.state.error && <p style={{ color: 'red'}}>{this.state.error}</p>}
           <Route exact path="/" render={props => <Smurfs  {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} /> } />
-          <Route path="/smurf-form" component={SmurfForm} />
+          <Route path="/smurf-form" render={props => <SmurfForm update={this.updateState}  {...props}/>} />
         </AppWrapper>
       </React.Fragment>
     );
