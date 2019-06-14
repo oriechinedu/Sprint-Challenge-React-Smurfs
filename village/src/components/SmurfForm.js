@@ -9,6 +9,9 @@ const FormWrapper = styled.div`
   margin: 10rem auto;
   form {
     width: 400px;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
     display: flex;
     flex-direction: column;
     margin: auto;

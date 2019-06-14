@@ -16,6 +16,10 @@ const HeaderWrapper = styled.header`
     padding: 0 10rem;
     justify-content: flex-end;
     align-items: center;
+    @media (max-width: 500px) {
+      padding: 0 0.8rem;
+      justify-content: space-between;
+    }
   }
 `
 const CustomNavLink = styled(NavLink)`

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Smurf from './Smurf';
 
+
 const SmuffWrapper = styled.div`
   width: 800px;
   display: flex;
@@ -10,6 +11,9 @@ const SmuffWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: auto;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
   ul {
     display: flex;
     justify-content: center;
@@ -29,7 +33,7 @@ const SmuffWrapper = styled.div`
       position: absolute;
       content: '';
       height: 3px;
-      background: green;
+      background: orange;
       width: 30%;
       bottom: 0;
       left: 0;
@@ -37,6 +41,7 @@ const SmuffWrapper = styled.div`
   }
 `
 class Smurfs extends Component {
+
   render() {
     return (
       <SmuffWrapper>
@@ -50,6 +55,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.props.deleteSmurf}
               />
             );
           })}

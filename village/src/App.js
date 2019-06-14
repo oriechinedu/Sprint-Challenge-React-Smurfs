@@ -36,6 +36,15 @@ class App extends Component {
       this.setState({isLoading: false})
     }
   }
+  deleteSmurf = (id) => {
+    axios.delete(`${API_BASE_URL}/${id}`)
+    .then(res => {
+      this.setState({smurfs: res.data})
+    })
+    .catch(err => {
+      console.log(err.message)
+    }) 
+  }
   render() {
     return (
       <React.Fragment>
@@ -43,7 +52,7 @@ class App extends Component {
         <AppWrapper>
         <Header />
           {this.state.error && <p style={{ color: 'red'}}>{this.state.error}</p>}
-          <Route exact path="/" render={props => <Smurfs  {...props} smurfs={this.state.smurfs} /> } />
+          <Route exact path="/" render={props => <Smurfs  {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} /> } />
           <Route path="/smurf-form" component={SmurfForm} />
         </AppWrapper>
       </React.Fragment>
